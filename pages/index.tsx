@@ -16,6 +16,7 @@ const style = {
 const Home: NextPage = () => {
   const address = useAddress();
 
+  // TODO: Review this code as Toast seems to pop up twice if change page and come back rapidly even if address has not changed.
   const welcomeUser = (userName: string, toastHandler = toast) => {
     toastHandler.success(
       `Welcome back${userName !== "Unnamed" ? ` ${userName}` : ""}`,
