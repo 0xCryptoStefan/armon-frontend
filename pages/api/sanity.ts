@@ -4,7 +4,7 @@ import { parse } from "path";
 import { client } from "../../lib/sanityClient";
 
 type ResponseData = {
-  message: string;
+  data: string;
 };
 
 export default async function handler(
@@ -23,7 +23,7 @@ export default async function handler(
       res
         .status(200)
         // .json({ message: `${req.body.walletAddress} Added to database` });
-        .json({ message: jsonResult });
+        .json({ data: jsonResult });
     }
   }
 }

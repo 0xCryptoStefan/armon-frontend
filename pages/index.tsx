@@ -46,10 +46,12 @@ const Home: NextPage = () => {
       });
 
       if (result) {
-        console.log(result);
-        // const cleanResult = JSON.parse(result);
-        // console.log(cleanResult);
-        // welcomeUser(cleanResult.userName);
+        const jsonData = await result.json();
+        const data = JSON.parse(jsonData.data);
+        console.log(data);
+        console.log(data.userName);
+        welcomeUser(data.userName);
+        // toast.success(`Welcome ${data.userName}`);
       }
       // .then((data) => {
       //   console.log(data);
@@ -63,6 +65,7 @@ const Home: NextPage = () => {
 
   return (
     <div className={style.wrapper}>
+      <Toaster position="bottom-right" reverseOrder={false} />
       {address ? (
         <>
           <NavBar />
